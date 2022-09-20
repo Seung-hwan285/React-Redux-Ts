@@ -1,0 +1,17 @@
+.navbar-container{
+  height: 70px;
+  background-color: wheat;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+}
+
+
+.navbar-container a{
+  text-decoration: none;
+}
+
+.bac-count{
+  font-size: 30px;
+}

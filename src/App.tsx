@@ -4,10 +4,10 @@ import './css/navbar.scss';
 import "./App.css";
 import {BrowserRouter} from "react-router-dom";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
-import Home from "./Home/Home";
-import Cart from "./Cart/Cart";
-import Navbar from "./Home/Navbar";
-import NotFound from "./Home/NotFound";
+import Home from "./components/Home/Home";
+import Cart from "./components/Cart/Cart";
+import Navbar from "./components/Home/Navbar";
+import NotFound from "./components/Home/NotFound";
 
 
 function App() :JSX.Element{

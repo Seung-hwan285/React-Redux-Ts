@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import {configureStore} from "@reduxjs/toolkit";
-import {store} from "./features/store";
+import {store} from "./store";
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);

@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import logo from './logo.svg';
-import './css/Navbar.scss';
+import './css/navbar.scss';
 import "./App.css";
 import {BrowserRouter} from "react-router-dom";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
@@ -10,11 +10,9 @@ import Navbar from "./Home/Navbar";
 import NotFound from "./Home/NotFound";
 
 
-function App() {
+function App() :JSX.Element{
     return (
     <div className="App">
-
-
       <BrowserRouter>
           <Navbar/>
         <Routes>

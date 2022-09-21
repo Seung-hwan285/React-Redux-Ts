@@ -1,0 +1,12 @@
+@mixin not-found{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: rgb(68,68,68);
+  min-height: 80vh;
+}
+
+.not-fount-container{
+  @include not-found;
+}

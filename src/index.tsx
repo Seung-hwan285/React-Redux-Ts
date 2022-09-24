@@ -6,13 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import {configureStore} from "@reduxjs/toolkit";
 import {store} from "./store";
+import {productFetch} from "./features/Product/productSlice";
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
+store.dispatch(productFetch());
 
 root.render(
-
     <Provider store={store}>
   <React.StrictMode>
       <App />

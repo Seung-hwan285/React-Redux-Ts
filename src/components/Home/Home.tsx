@@ -1,36 +1,42 @@
+import {useEffect, useState} from "react";
+import axios from "axios";
 import {useGetAllProductsQuery} from "../../features/Product/productApi";
-
-
+import "../../css/home.scss"
 
 function Home() :JSX.Element{
 
+    const {data,isLoading} = useGetAllProductsQuery("productsApi");
 
-    const {data,isLoading} = useGetAllProductsQuery('products');
 
-
-    console.log(isLoading);
-    console.log(data);
     return(
         <div className="home-container">
             {isLoading ? <h2>로딩중..</h2>
-            :   (
-                <>
-                    <h2>New Arrivals</h2>
+                :   (
+                    <>
+                        <h2 className="title">New Phones</h2>
+                        <div className="products">
+                        {
+                            data.map((product : any)=>(
 
-                    {data.map((product :any)=>(
-                        <div key={product.id}>
-                            <h3>{product.name}</h3>
-                            <img src={product.img} alt={product.name}/>
-                            <div className="product-detail">
-                                <span>{product.price}</span>
-                            </div>
+                                <div key={product.id} className="product">
+                                    <h3>{product.name}</h3>
 
-                            <button>상품추가하기</button>
+                                    <img id="image" src={product.img}/>
+
+
+                                    <div>
+                                        <span className="price">{product.price}</span>
+                                    </div>
+                                    <button className="product-btn">상품 추가하기</button>
+
+                                </div>
+                            ))
+
+                        }
+
+
                         </div>
-                    ))
-
-                    }
-                </>
+                    </>
                 )
             }
         </div>

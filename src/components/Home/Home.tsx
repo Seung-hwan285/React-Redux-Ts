@@ -1,12 +1,21 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useGetAllProductsQuery} from "../../features/Product/productApi";
 import "../../css/home.scss"
+import {useDispatch} from "react-redux";
+import {addToCart} from "../../features/Cart/cartSlice";
 
 function Home() :JSX.Element{
 
     const {data,isLoading} = useGetAllProductsQuery("productsApi");
 
+    const dispatch = useDispatch();
+
+    const onAddToCart =(product : React.MouseEvent<HTMLButtonElement>)=>{
+        // action 전달
+        dispatch(addToCart(product));
+
+    }
 
     return(
         <div className="home-container">
@@ -27,7 +36,7 @@ function Home() :JSX.Element{
                                     <div>
                                         <span className="price">{product.price}</span>
                                     </div>
-                                    <button className="product-btn">상품 추가하기</button>
+                                    <button onClick={()=>onAddToCart(product)} className="product-btn">상품 추가하기</button>
 
                                 </div>
                             ))

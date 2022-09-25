@@ -45,7 +45,9 @@ export const cartSlice=createSlice({
                 return item.id===action.payload.id;
             });
 
-
+            if(itemIndex ===-1){
+                alert('삭제할 상품이 장바구니에 없습니다');
+            }
 
             if(state.cartItems[itemIndex].cartCount <= 1){
                 state.cartItems=state.cartItems.filter((item) => item.id !== action.payload.id);

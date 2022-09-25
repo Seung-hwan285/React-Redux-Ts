@@ -41,7 +41,7 @@ function Home() :JSX.Element{
                                         <span className="price">{product.price}</span>
                                     </div>
                                     <button onClick={()=>onAddToCart(product)} className="product-btn">상품 추가하기</button>
-                                    <button onClick={()=>onDeleteCart(product)} className="product-btn">상품 삭제</button>
+                                    <button id ="delete-btn" onClick={()=>onDeleteCart(product)}>상품 삭제</button>
                                 </div>
                             ))
 

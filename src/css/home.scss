@@ -23,9 +23,11 @@
   width: 100%;
   height: 30px;
   font-weight: bold;
+  margin-bottom: 10px;
   background-color: #4b70e2;
   color: #f9f9f9;
 }
+
 
 @mixin product-title{
   font-size: 13px;
@@ -67,6 +69,19 @@
 .product-btn{
   @include  product-btn;
 }
+
+#delete-btn{
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: 30px;
+    font-weight: bold;
+    background-color: #4b70e2;
+    color: #f9f9f9;
+}
+
+
 .price{
   @include product-title;
 }

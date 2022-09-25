@@ -3,7 +3,7 @@ import axios from "axios";
 import {useGetAllProductsQuery} from "../../features/Product/productApi";
 import "../../css/home.scss"
 import {useDispatch} from "react-redux";
-import {addToCart} from "../../features/Cart/cartSlice";
+import {addToCart, deleteCart} from "../../features/Cart/cartSlice";
 
 function Home() :JSX.Element{
 
@@ -15,6 +15,10 @@ function Home() :JSX.Element{
         // action 전달
         dispatch(addToCart(product));
 
+    }
+
+    const onDeleteCart = (product : React.MouseEvent<HTMLButtonElement>)=>{
+        dispatch(deleteCart(product));
     }
 
     return(
@@ -37,7 +41,7 @@ function Home() :JSX.Element{
                                         <span className="price">{product.price}</span>
                                     </div>
                                     <button onClick={()=>onAddToCart(product)} className="product-btn">상품 추가하기</button>
-
+                                    <button onClick={()=>onDeleteCart(product)} className="product-btn">상품 삭제</button>
                                 </div>
                             ))
 

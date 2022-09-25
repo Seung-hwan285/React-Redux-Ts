@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 import {toast} from "react-toastify";
 
 interface CartState {
@@ -25,6 +25,8 @@ export const cartSlice=createSlice({
                 return item.id===action.payload.id;
             })
 
+            console.log(itemIndex);
+
             if(itemIndex>=0){
                 state.cartItems[itemIndex].cartCount +=1;
                 toast.info("상품 추가",{
@@ -32,6 +34,26 @@ export const cartSlice=createSlice({
                 });
             }else{
                 state.cartItems.push({...action.payload, cartCount :1});
+                toast.info("상품 선택",{
+                    position : "bottom-right"
+                });
+            }
+        },
+
+        deleteCart(state,action){
+            const itemIndex = state.cartItems.findIndex((item)=>{
+                return item.id===action.payload.id;
+            });
+
+
+
+            if(state.cartItems[itemIndex].cartCount <= 1){
+                state.cartItems=state.cartItems.filter((item) => item.id !== action.payload.id);
+            }else{
+                toast.info(`1개 삭제중`,{
+                   position: "bottom-left"
+                });
+                state.cartItems[itemIndex].cartCount -=1;
 
             }
         }
@@ -41,6 +63,6 @@ export const cartSlice=createSlice({
 
 
 
-export const {addToCart}  = cartSlice.actions;
+export const {addToCart,deleteCart}  = cartSlice.actions;
 
 export default cartSlice.reducer;

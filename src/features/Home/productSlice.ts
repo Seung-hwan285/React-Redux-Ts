@@ -31,7 +31,10 @@ const productSlice = createSlice({
     name: 'products',
     initialState,
     //동기 / 내부  action
-    reducers: {},
+    reducers: {
+
+        
+    },
 
     // 비동기 /외부 aciton
     extraReducers:(builder)=>{

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {useGetAllProductsQuery} from "../../features/Product/productApi";
+import {useGetAllProductsQuery} from "../../features/Home/productApi";
 import "../../css/home.scss"
 import {useDispatch} from "react-redux";
 import {addToCart, deleteCart} from "../../features/Cart/cartSlice";

@@ -1,8 +1,9 @@
 import {configureStore, getDefaultMiddleware} from "@reduxjs/toolkit";
-import ProductSlice, {productFetch} from "./features/Product/productSlice";
-import productReducer from "./features/Product/productSlice";
-import {productApi} from "./features/Product/productApi";
+import ProductSlice, {productFetch} from "./features/Home/productSlice";
+import productReducer from "./features/Home/productSlice";
+import {productApi} from "./features/Home/productApi";
 import cartReducers from "./features/Cart/cartSlice";
+import modalReducers from "./features/Home/modalSlice";
 
 export const store = configureStore({
 
@@ -10,6 +11,7 @@ export const store = configureStore({
 
         products: productReducer,
         cart : cartReducers,
+        modal : modalReducers,
 
         [productApi.reducerPath] : productApi.reducer,
 

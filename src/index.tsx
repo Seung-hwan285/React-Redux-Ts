@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import {configureStore} from "@reduxjs/toolkit";
 import {store} from "./store";
-import {productFetch} from "./features/Product/productSlice";
+import {productFetch} from "./features/Home/productSlice";
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);

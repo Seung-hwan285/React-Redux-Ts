@@ -4,17 +4,19 @@ import {useGetAllProductsQuery} from "../../features/Product/productApi";
 import "../../css/home.scss"
 import {useDispatch} from "react-redux";
 import {addToCart, deleteCart} from "../../features/Cart/cartSlice";
-
+import { useNavigate } from 'react-router-dom'; // 설치한 패키지
 function Home() :JSX.Element{
 
     const {data,isLoading} = useGetAllProductsQuery("productsApi");
 
     const dispatch = useDispatch();
 
+    const history = useNavigate();
+
     const onAddToCart =(product : React.MouseEvent<HTMLButtonElement>)=>{
         // action 전달
         dispatch(addToCart(product));
-
+        history("/cart");
     }
 
     const onDeleteCart = (product : React.MouseEvent<HTMLButtonElement>)=>{

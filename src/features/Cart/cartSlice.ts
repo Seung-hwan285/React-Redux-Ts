@@ -8,7 +8,7 @@ interface CartState {
 }
 
 const initialState :  CartState= {
-    cartItems: [],
+    cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")!) : [],
     cartToCount : 0,
     cartToAmount : 0,
 };
@@ -25,19 +25,21 @@ export const cartSlice=createSlice({
                 return item.id===action.payload.id;
             })
 
-            console.log(itemIndex);
-
             if(itemIndex>=0){
                 state.cartItems[itemIndex].cartCount +=1;
-                toast.info("상품 추가",{
+                toast.info(`${action.payload.name} 상품 추가`,{
                    position : "bottom-left"
                 });
             }else{
                 state.cartItems.push({...action.payload, cartCount :1});
-                toast.info("상품 선택",{
+
+                toast.success(`${action.payload.name} 상품 담기`,{
                     position : "bottom-right"
                 });
+
             }
+            localStorage.setItem("cartItems",JSON.stringify(state.cartItems));
+
         },
 
         deleteCart(state,action){
@@ -52,15 +54,17 @@ export const cartSlice=createSlice({
             if(state.cartItems[itemIndex].cartCount <= 1){
                 state.cartItems=state.cartItems.filter((item) => item.id !== action.payload.id);
             }else{
-                toast.info(`1개 삭제중`,{
+                toast.success(`${action.payload.name} 삭제`,{
                    position: "bottom-left"
                 });
+
                 state.cartItems[itemIndex].cartCount -=1;
 
             }
+            localStorage.setItem("cartItems",JSON.stringify(state.cartItems));
+
         }
     },
-
 });
 
 

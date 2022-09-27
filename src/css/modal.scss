@@ -16,14 +16,37 @@
   justify-content: center;
 }
 @mixin modal{
-  background: #4b70e2;
-  width: 30rem;
-  max-width: 400px;
+  background: #ffffff;
+  max-width: 500px;
   border-radius: 20px;
-  padding: 2rem 1rem;
+  padding: 5rem 2rem;
   text-align: center;
+
+}
+@mixin modal-title{
+  position: relative;
+  bottom:20px;
+  font-weight: bold;
+  font-size: 1.3rem;
 }
 
+@mixin confirm-btn{
+  margin-top: 1rem;
+  width: 100px;
+  padding: 1rem 2rem;
+  background-color: #b6b0b0;
+  border: none;
+  cursor: pointer;
+}
+
+@mixin clear-btn{
+  margin-left: 20px;
+  margin-top: 1rem;
+  width: 100px;
+  padding: 1rem 2rem;
+  border: none;
+  cursor: pointer;
+}
 
 .modal-container{
   @include modal-container;
@@ -34,22 +57,19 @@
 }
 
 #modal-title{
-  font-weight: bold;
-  font-size: 2rem;
-
+  @include modal-title;
 }
 
 .btn-container{
   position: fixed;
-  bottom: 12rem;
+  transform: translateX(45%);
+
 }
 
 .confirm-btn{
-  padding: 1rem;
-  margin-right: 20px;
-
+  @include confirm-btn;
 }
 
 .clear-btn{
-  padding: 0.9rem;
+  @include clear-btn;
 }

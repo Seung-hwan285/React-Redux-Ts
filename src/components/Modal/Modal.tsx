@@ -11,7 +11,6 @@ function Modal() : JSX.Element {
 
     const dispatch =useDispatch();
 
-
     const history = useNavigate();
 
     const onClickCartPage=()=>{
@@ -24,22 +23,22 @@ function Modal() : JSX.Element {
         <div className ="modal-container">
             <div className="modal">
                 <h3 id="modal-title">선택하신 상품이 장바구니에 추가되었습니다.</h3>
-            </div>
-
-
 
                 <div className="btn-container">
-                    <button className="btn confirm-btn"
+                    <button className="confirm-btn"
                             onClick={()=>onClickCartPage()}
                     >
-                        장 바구니 이동하기
+                        Cart
                     </button>
-                    <button className="btn clear-btn"
+                    <button className="clear-btn"
                             onClick={()=>dispatch(showClose())}>
-                        창 닫기
+                        Close
                     </button>
 
                 </div>
+            </div>
+
+
 
 
 

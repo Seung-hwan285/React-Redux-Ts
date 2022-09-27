@@ -17,24 +17,22 @@ function Home() :JSX.Element{
     const history = useNavigate();
 
 
-    const onAddToCart =(product : React.MouseEvent<HTMLButtonElement>)=>{
-        // action 전달
-        dispatch(addToCart(product));
-        history("/cart");
-    }
 
     const showUI = useSelector((state: RootState)=>state.modal);
 
     let showUiValue =showUI.show;
-    console.log(showUiValue);
 
 
     const onDeleteCart = (product : React.MouseEvent<HTMLButtonElement>)=>{
         dispatch(deleteCart(product));
     }
 
-    const onClickModal =()=>{
+
+    const onAddToCart =(product : React.MouseEvent<HTMLButtonElement>)=>{
+        // action 전달
         dispatch(showOpen());
+
+        dispatch(addToCart(product));
     }
 
     return(
@@ -56,17 +54,23 @@ function Home() :JSX.Element{
                                     <div>
                                         <span className="price">{product.price}</span>
                                     </div>
-                                    <button onClick={()=>onClickModal()} className="product-btn">상품 추가하기</button>
+                                    {/*modaldata product ={product}*/}
+                                    <button onClick={()=>onAddToCart(product)} className="product-btn">상품 추가하기</button>
                                     <button id ="delete-btn" onClick={()=>onDeleteCart(product)}>상품 삭제</button>
+
+
+
                                 </div>
+
                             ))
 
                         }
+                            {showUiValue ? <Modal
+
+                            /> : null}
+
                         </div>
 
-                        {showUiValue ? <Modal
-
-                        /> : null}
 
                     </>
                 )

@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@mixin modal-container{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin modal{
+  background: #4b70e2;
+  width: 30rem;
+  max-width: 400px;
+  border-radius: 20px;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+
+.modal-container{
+  @include modal-container;
+}
+
+.modal {
+  @include modal;
+}
+
+#modal-title{
+  font-weight: bold;
+  font-size: 2rem;
+
+}
+
+.btn-container{
+  position: fixed;
+  bottom: 12rem;
+}
+
+.confirm-btn{
+  padding: 1rem;
+  margin-right: 20px;
+
+}
+
+.clear-btn{
+  padding: 0.9rem;
+}

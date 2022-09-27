@@ -10,9 +10,14 @@ import Cart from "./components/Cart/Cart";
 import Navbar from "./components/Home/Navbar";
 import NotFound from "./components/Home/NotFound";
 import {ToastContainer} from "react-toastify";
+import {useSelector} from "react-redux";
+import {RootState} from "./store";
 
 
 function App() :JSX.Element{
+
+
+
     return (
     <div className="App">
       <BrowserRouter>
@@ -26,6 +31,7 @@ function App() :JSX.Element{
         </Routes>
 
       </BrowserRouter>
+
 
 
     </div>

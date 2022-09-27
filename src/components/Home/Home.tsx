@@ -2,9 +2,12 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useGetAllProductsQuery} from "../../features/Home/productApi";
 import "../../css/home.scss"
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addToCart, deleteCart} from "../../features/Cart/cartSlice";
-import { useNavigate } from 'react-router-dom'; // 설치한 패키지
+import { useNavigate } from 'react-router-dom';
+import {showOpen} from "../../features/Home/modalSlice";
+import {RootState} from "../../store";
+import Modal from "../Modal/Modal";
 function Home() :JSX.Element{
 
     const {data,isLoading} = useGetAllProductsQuery("productsApi");
@@ -13,14 +16,25 @@ function Home() :JSX.Element{
 
     const history = useNavigate();
 
+
     const onAddToCart =(product : React.MouseEvent<HTMLButtonElement>)=>{
         // action 전달
         dispatch(addToCart(product));
         history("/cart");
     }
 
+    const showUI = useSelector((state: RootState)=>state.modal);
+
+    let showUiValue =showUI.show;
+    console.log(showUiValue);
+
+
     const onDeleteCart = (product : React.MouseEvent<HTMLButtonElement>)=>{
         dispatch(deleteCart(product));
+    }
+
+    const onClickModal =()=>{
+        dispatch(showOpen());
     }
 
     return(
@@ -42,15 +56,18 @@ function Home() :JSX.Element{
                                     <div>
                                         <span className="price">{product.price}</span>
                                     </div>
-                                    <button onClick={()=>onAddToCart(product)} className="product-btn">상품 추가하기</button>
+                                    <button onClick={()=>onClickModal()} className="product-btn">상품 추가하기</button>
                                     <button id ="delete-btn" onClick={()=>onDeleteCart(product)}>상품 삭제</button>
                                 </div>
                             ))
 
                         }
-
-
                         </div>
+
+                        {showUiValue ? <Modal
+
+                        /> : null}
+
                     </>
                 )
             }

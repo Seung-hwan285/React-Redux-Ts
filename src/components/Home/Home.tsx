@@ -8,15 +8,12 @@ import { useNavigate } from 'react-router-dom';
 import {showOpen} from "../../features/Home/modalSlice";
 import {RootState} from "../../store";
 import Modal from "../Modal/Modal";
+import Cart from "../Cart/Cart";
 function Home() :JSX.Element{
 
     const {data,isLoading} = useGetAllProductsQuery("productsApi");
 
     const dispatch = useDispatch();
-
-    const history = useNavigate();
-
-
 
     const showUI = useSelector((state: RootState)=>state.modal);
 
@@ -50,20 +47,16 @@ function Home() :JSX.Element{
 
                                     <img id="image" src={product.img}/>
 
-
                                     <div>
                                         <span className="price">{product.price}</span>
                                     </div>
-                                    {/*modaldata product ={product}*/}
                                     <button onClick={()=>onAddToCart(product)} className="product-btn">상품 추가하기</button>
                                     <button id ="delete-btn" onClick={()=>onDeleteCart(product)}>상품 삭제</button>
-
-
 
                                 </div>
 
                             ))
-
+                            
                         }
                             {showUiValue ? <Modal
 

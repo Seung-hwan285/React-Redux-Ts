@@ -34,16 +34,8 @@ function Modal() : JSX.Element {
                             onClick={()=>dispatch(showClose())}>
                         Close
                     </button>
-
                 </div>
             </div>
-
-
-
-
-
-
-
 
         </div>
     )

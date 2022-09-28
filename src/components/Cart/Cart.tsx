@@ -10,27 +10,23 @@ function Cart() :JSX.Element{
     return(
         <div className="cart-container">
 
-            <section>
-                <div className="cart-title">
-                    <span>Shopping Cart</span>
-                </div>
-            </section>
 
-            <section>
+            <div className="cart-title">
+                <span>Shopping Cart</span>
+            </div>
+
 
                 <div className="cart-wrapper">
 
-                    <h3 className="product-title">Product</h3>
-                    <h3 className="price">Price</h3>
-                    <h3 className="quantity">Quantity</h3>
-                    <h3 className="total">Total</h3>
-
-
-
+                    <div className="products-column">
+                        <h3 className="product-title">Product</h3>
+                        <h3 className="price">Price</h3>
+                        <h3 className="quantity">Quantity</h3>
+                        <h3 className="total">Total</h3>
+                    </div>
                     <hr/>
 
                     <div className="cart-items">
-
                     {
                         cart.cartItems ?  cart.cartItems.map((product)=>(
 
@@ -43,7 +39,7 @@ function Cart() :JSX.Element{
 
                                 <div>
                                     <h3>{product.name}</h3>
-                                    <button>Remove</button>
+                                    <button className="delete-btn">Remove</button>
                                 </div>
                             </div>
 
@@ -53,14 +49,14 @@ function Cart() :JSX.Element{
                             </div>
 
                             <div className="cart-count-button">
-                                <button>
+                                <button className="minus-btn">
                                     -
                                 </button>
 
                                 <div>{product.cartCount}</div>
 
 
-                                <button>
+                                <button className="plus-btn">
                                     +
                                 </button>
                             </div>
@@ -82,7 +78,7 @@ function Cart() :JSX.Element{
                 </div>
                 </div>
 
-            </section>
+
 
 
         </div>

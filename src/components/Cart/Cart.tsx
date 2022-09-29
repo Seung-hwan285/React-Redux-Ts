@@ -1,10 +1,18 @@
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store";
 import "../../css/cart.scss"
+import {deleteCart} from "../../features/Cart/cartSlice";
 function Cart() :JSX.Element{
 
 
     const cart = useSelector((state:RootState)=>state.cart);
+    const dispatch = useDispatch();
+
+    const onClickDelete=(product :any)=>{
+
+        dispatch(deleteCart(product));
+    }
+
 
     return(
         <div className="cart-container">
@@ -38,7 +46,7 @@ function Cart() :JSX.Element{
 
                                 <div>
                                     <h3>{product.name}</h3>
-                                    <button className="delete-btn">Remove</button>
+                                    <button onClick={()=>onClickDelete(product)} className="delete-btn">Remove</button>
                                 </div>
                             </div>
 

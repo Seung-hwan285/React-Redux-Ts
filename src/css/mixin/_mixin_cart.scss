@@ -11,15 +11,11 @@
     justify-content: center;
   }
 }
-@mixin font-style-2rem(){
-  font-size: 2.5rem;
-}
-@mixin font-style-20(){
-  font-size: 20px;
-}
-@mixin font-style-03(){
 
+@mixin font-style($value : null){
+    font-size: $value;
 }
+
 
 @mixin grid-container($col-start,$col-end,$row-start,$row-end){
   display: grid;

@@ -14,7 +14,8 @@
 }
 
 .cart-title > span{
-  @include font-style-2rem;
+  @include font-style(2.5rem);
+
 }
 
 #cart-image{
@@ -32,7 +33,7 @@
 }
 
 .price{
-  @include font-style-20;
+  @include font-style(20px);
 }
 
 
@@ -61,7 +62,7 @@
   background: none;
   @include none-style;
   @include padding-container01(1.7rem,2rem);
-  @include font-style-20;
+  @include font-style(20px);
 }
 
 .cart-count-button > div{

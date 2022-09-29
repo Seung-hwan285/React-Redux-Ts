@@ -1,0 +1,56 @@
+@mixin font-style($value : null , $font-weight : null){
+  font-size: $value;
+  font-weight: $font-weight;
+}
+
+@mixin padding-container01($width,$height){
+  padding: $width $height;
+}
+
+@mixin flex-container($align:null,$justify:null,$wrap:null){
+
+  display: flex;
+
+  @if($wrap==wrap){
+    flex-wrap: wrap;
+  }
+
+  @if($justify==center){
+    justify-content: center;
+  }
+  @if($align==center){
+    align-items: center;
+  }
+
+  @if($justify==space-between){
+    justify-content: space-between;
+  }
+}
+
+@mixin size($width :null,$height:null){
+  width: $width;
+  height: $height;
+}
+
+@mixin back-ground($color){
+  background-color: $color;
+}
+
+@mixin border-radius($size){
+  border-radius: $size;
+}
+
+
+@mixin button-style01{
+  border: none;
+  cursor: pointer;
+  @include size(100%,30px);
+  font-weight: bold;
+  @include back-ground(#4b70e2);
+  color: #f9f9f9;
+}
+
+@mixin product-title{
+  @include font-style(13px,700);
+  letter-spacing: 1.15px;
+}

@@ -1,5 +1,6 @@
+import "../../css/main.scss";
 
-import "../../css/not-found.scss"
+
 function NotFound() :JSX.Element{
     return (
         <div className="not-fount-container">

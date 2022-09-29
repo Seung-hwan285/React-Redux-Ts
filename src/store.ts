@@ -3,7 +3,7 @@ import ProductSlice, {productFetch} from "./features/Home/productSlice";
 import productReducer from "./features/Home/productSlice";
 import {productApi} from "./features/Home/productApi";
 import cartReducers from "./features/Cart/cartSlice";
-import modalReducers from "./features/Home/modalSlice";
+import modalReducers from "./features/Modal/modalSlice";
 
 export const store = configureStore({
 
@@ -17,10 +17,8 @@ export const store = configureStore({
 
     },
 
-
     middleware : (getDefaultMiddleware)=>
         getDefaultMiddleware().concat(productApi.middleware),
-
 });
 
 export type RootState = ReturnType<typeof store.getState>

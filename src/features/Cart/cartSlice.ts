@@ -69,7 +69,6 @@ export const cartSlice=createSlice({
                 return item.id ===action.payload.id;
             })
             const itemCount = state.cartItems[itemIndex].cartCount;
-            console.log(itemCount);
 
             if(itemCount>0){
                 state.cartItems[itemIndex].cartCount-=1;

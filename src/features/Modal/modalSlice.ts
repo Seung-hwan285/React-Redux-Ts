@@ -18,7 +18,6 @@ const modalSlice = createSlice({
         showClose : (state)=>{
             state.show =false;
         }
-
     },
 });
 

@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import logo from './logo.svg';
-import './css/navbar.scss';
+import './css/ui/navbar.scss';
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css"
 import {BrowserRouter} from "react-router-dom";

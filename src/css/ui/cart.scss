@@ -1,45 +1,9 @@
-@mixin flex-container($align, $justify){
-  display: flex;
-
-  @if($align ==start ){
-    align-items: start;
-  }
-  @if ($align ==center){
-  align-items: center;
-  }
-  @if($justify ==center){
-    justify-content: center;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-@mixin font-style-2rem(){
-  font-size: 2.5rem;
-}
-@mixin font-style-20(){
-  font-size: 20px;
-}
-@mixin font-style-03(){
-
-}
-
-@mixin grid-container($col-start,$col-end,$row-start,$row-end){
-  display: grid;
-  grid-template-columns: $col-start  $col-end $row-start $row-end;
-}
-
-@mixin none-style(){
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
-
-@mixin font-bold(){
-  font-weight: bold;
-}
-
-@mixin size($width,$height){
-  width: $width;
-  height: $height;
-}
+@import "src/css/mixin/mixin_cart";
 
 ////////////////--------------------mixin----------------------////////////////////
 
@@ -85,7 +49,7 @@
   @include flex-container(center,center);
   @include size(120px,60px);
   border: 0.5px solid rgb(177, 177, 177);
-  border-radius: 5px;
+  @include border-radius(5px);
   position: relative;
   right: 1.3rem;
   margin-top: 60px;
@@ -96,7 +60,7 @@
 .cart-count-button > button {
   background: none;
   @include none-style;
-  padding: 1.7rem 2rem;
+  @include padding-container01(1.7rem,2rem);
   @include font-style-20;
 }
 
@@ -112,15 +76,36 @@
 .cart-price{
 
   @include flex-container(center,start);
-  position: relative;
-  left: 3%;
+  @include position(relative,null,null,null,3%);
+
 }
 
-.delete-btn {
-
+.delete-btn button{
   @include none-style;
   color: grey;
-  margin-top: 5rem;
+  @include border-radius(10px);
+  @include padding-container01(0.5rem,1rem);
+  margin-top: 5.8rem;
+}
+
+.delete-btn button:hover{
+
+  @include button-hover(gray,black);
+  @include border-radius(10px);
+
+}
+
+.clear-btn button{
+  @include position(absolute,null,null,null,6%);
+  @include padding-container01(1rem,2rem);
+  border: none;
+  @include border-radius(10px);
+  cursor: pointer;
+
+}
+
+.clear-btn button:hover{
+  @include button-hover(gray,black);
 }
 
 

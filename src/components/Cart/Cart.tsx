@@ -1,6 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store";
-import "../../css/cart.scss"
+import "../../css/main.scss";
+
 import {deleteCart, minusCartToCount, plusCartToCount} from "../../features/Cart/cartSlice";
 function Cart() :JSX.Element{
 
@@ -14,7 +15,6 @@ function Cart() :JSX.Element{
     }
 
     const onClickMinus=(product: any)=>{
-
         dispatch(minusCartToCount(product));
     }
 
@@ -53,9 +53,9 @@ function Cart() :JSX.Element{
 
                             <img id="cart-image" src={product.img}/>
 
-                                <div>
+                                <div className="delete-btn">
                                     <h3>{product.name}</h3>
-                                    <button onClick={()=>onClickDelete(product)} className="delete-btn">Remove</button>
+                                    <button onClick={()=>onClickDelete(product)}>Remove</button>
                                 </div>
                             </div>
 
@@ -96,6 +96,16 @@ function Cart() :JSX.Element{
 
                     <hr/>
                 </div>
+
+                    {/*clear cart (카트 전부 초기화 하는 기능) */}
+                    <section>
+
+                        <div className="clear-btn">
+                            <button onClick={()=>console.log('ds')}>Clear Cart</button>
+                        </div>
+
+                    </section>
+
                 </div>
 
 

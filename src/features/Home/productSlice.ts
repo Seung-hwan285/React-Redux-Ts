@@ -8,7 +8,7 @@ import axios from "axios";
 // reducer은 내부에서 진행되는 action 및 동기 action , extraReducersdms 비동기 action을 넣는 공간
 
 interface ProductsState {
-    items: any[];
+    items: unknown[];
     status : string;
 }
 

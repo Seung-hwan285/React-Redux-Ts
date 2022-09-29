@@ -1,16 +1,25 @@
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store";
 import "../../css/cart.scss"
-import {deleteCart} from "../../features/Cart/cartSlice";
+import {deleteCart, minusCartToCount, plusCartToCount} from "../../features/Cart/cartSlice";
 function Cart() :JSX.Element{
 
 
     const cart = useSelector((state:RootState)=>state.cart);
     const dispatch = useDispatch();
 
-    const onClickDelete=(product :any)=>{
 
+    const onClickDelete=(product:any)=>{
         dispatch(deleteCart(product));
+    }
+
+    const onClickMinus=(product: any)=>{
+
+        dispatch(minusCartToCount(product));
+    }
+
+    const onClickPlus=(product:any)=>{
+        dispatch(plusCartToCount(product));
     }
 
 
@@ -56,14 +65,18 @@ function Cart() :JSX.Element{
                             </div>
 
                             <div className="cart-count-button">
-                                <button className="minus-btn">
+                                <button className="minus-btn"
+                                    onClick={()=>onClickMinus(product)}
+                                >
                                     -
                                 </button>
 
                                 <div>{product.cartCount}</div>
 
 
-                                <button className="plus-btn">
+                                <button className="plus-btn"
+                                    onClick={()=>onClickPlus(product)}
+                                >
                                     +
                                 </button>
                             </div>

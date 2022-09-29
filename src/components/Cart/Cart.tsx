@@ -6,7 +6,6 @@ function Cart() :JSX.Element{
 
     const cart = useSelector((state:RootState)=>state.cart);
 
-    console.log(cart);
     return(
         <div className="cart-container">
 

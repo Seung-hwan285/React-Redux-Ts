@@ -8,6 +8,7 @@ import CartClearButton from "./CartClearButton";
 import CartItems from "./CartItems";
 import {Root} from "postcss";
 import {useEffect, useState} from "react";
+import CartTotal from "./CartTotal";
 
 
 function Cart() :JSX.Element{
@@ -30,10 +31,6 @@ function Cart() :JSX.Element{
     return(
         <div className="cart-container">
 
-            <div className="cart-title">
-                <span>Shopping Cart</span>
-            </div>
-
             <div className="cart-wrapper">
                     <CartTitle/>
                     <hr/>
@@ -42,22 +39,9 @@ function Cart() :JSX.Element{
             </div>
             <CartClearButton/>
 
+            <CartTotal/>
 
-            <div className="cart-total-money">
-                <div className="total-title">
-                    <span>total</span>
-                    <span>{cartToTotal}</span>
-                </div>
 
-                <div>
-                    <span>구매하신 총 가격입니다.</span>
-                </div>
-
-                <div>
-                    <button>Check out</button>
-                </div>
-
-            </div>
         </div>
     );
 }

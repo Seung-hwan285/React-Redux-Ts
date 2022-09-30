@@ -29,4 +29,4 @@
 - 리펙토링
   - [x] cart.scss -> ( mixin 폴더로 이동시키기 )
   - [x] home.scss -> ( mixin 폴더로 이동시키기 )
-  - [ ] modal.scss -> ( mixin 폴더로 이동시키기 )
+  - [x] modal.scss -> ( mixin 폴더로 이동시키기 )

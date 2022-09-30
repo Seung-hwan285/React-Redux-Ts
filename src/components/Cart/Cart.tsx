@@ -37,11 +37,10 @@ function Cart() :JSX.Element{
                     <CartItems/>
                     <hr/>
             </div>
+            
             <CartClearButton/>
 
             <CartTotal/>
-
-
         </div>
     );
 }

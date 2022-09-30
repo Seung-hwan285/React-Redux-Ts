@@ -1,16 +1,20 @@
-@mixin flex-container($align, $justify){
-  display: flex;
+@mixin flex-container($align,$justify){
 
-  @if($align ==start ){
+  display: flex;
+  @if($align ==center){
+    align-items: center;
+  }@else if($align==start){
     align-items: start;
   }
-  @if ($align ==center){
-    align-items: center;
-  }
-  @if($justify ==center){
+
+  @if($justify==center){
     justify-content: center;
+  }@else if($justify==start){
+    justify-content: start;
   }
+
 }
+
 
 @mixin font-style($value : null){
     font-size: $value;

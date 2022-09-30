@@ -1,14 +1,33 @@
+@mixin flex-container($align,$justify){
 
-@mixin modal-container{
-  position: fixed;
-  top:0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  @if($align ==center){
+    align-items: center;
+  }@else if($align==start){
+    align-items: start;
+  }
+
+  @if($justify==center){
+    justify-content: center;
+  }@else if($justify==start){
+    justify-content: start;
+  }
+}
+@mixin size($width,$height){
+  width: $width;
+  height: $height;
+}
+
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+@mixin font-style($weight : null,$size:null){
+  font-weight: $weight;
+  font-size: $size;
 }
 
 @mixin modal{
@@ -20,16 +39,19 @@
 
 }
 @mixin modal-title{
-  position: relative;
-  bottom:20px;
-  font-weight: bold;
-  font-size: 1.3rem;
+  @include position(relative,"","",20px,0);
+  @include font-style(bold,1.3rem);
+
 }
+
+@mixin padding-container01($width,$height){
+  padding: $width $height;
+}
+
 
 @mixin confirm-btn{
   margin-top: 1rem;
   width: 100px;
-  padding: 1rem 2rem;
   background-color: #b6b0b0;
   border: none;
   cursor: pointer;
@@ -39,33 +61,47 @@
   margin-left: 20px;
   margin-top: 1rem;
   width: 100px;
-  padding: 1rem 2rem;
   border: none;
   cursor: pointer;
 }
 
+//////////////////////////////////////////////// mixin ////////////
+
 .modal-container{
-  @include modal-container;
+  @include position(fixed,0,0,0,0);
+
+  background: rgba(0, 0, 0, 0.7);
+
+  @include flex-container(center,center);
+  @include size(100%,100%);
+
+  .modal {
+    @include modal;
+  }
+
+
+  #modal-title{
+    @include modal-title;
+  }
+
 }
 
-.modal {
-  @include modal;
-}
-
-#modal-title{
-  @include modal-title;
-}
 
 .btn-container{
+
   position: fixed;
   transform: translateX(45%);
 
+  .confirm-btn{
+    @include padding-container01(1rem,2rem);
+    @include confirm-btn;
+  }
+
+  .clear-btn{
+    @include clear-btn;
+    @include padding-container01(1rem,2rem);
+  }
+
+
 }
 
-.confirm-btn{
-  @include confirm-btn;
-}
-
-.clear-btn{
-  @include clear-btn;
-}

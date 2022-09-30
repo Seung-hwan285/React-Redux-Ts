@@ -23,15 +23,14 @@
 
 #image{
   @include size(300px,150px);
-  margin-bottom: 30px;
+  @include margin-bottom(30px);
 }
 
 .product-btn{
-
   @include border-radius(20px);
   @include button-style01;
   @include back-ground(#4b70e2);
-  margin-bottom: 10px;
+  @include margin-bottom(10px);
 
 }
 

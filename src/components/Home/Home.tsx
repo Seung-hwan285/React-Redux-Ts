@@ -33,6 +33,7 @@ function Home() :JSX.Element{
         dispatch(addToCart(product));
     }
 
+
     return(
         <div className="home-container">
             {isLoading ? <h2>로딩중..</h2>

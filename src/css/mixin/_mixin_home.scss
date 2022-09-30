@@ -54,3 +54,7 @@
   @include font-style(13px,700);
   letter-spacing: 1.15px;
 }
+
+@mixin margin-bottom($value){
+  margin-bottom: $value;
+}

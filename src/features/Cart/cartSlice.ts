@@ -85,12 +85,17 @@ export const cartSlice=createSlice({
             if(itemCount >=0){
                 state.cartItems[itemIndex].cartCount+=1;
             }
+        },
+
+        clearToCart(state){
+            state.cartItems = [];
+            localStorage.setItem("cartItems",JSON.stringify(state.cartItems));
         }
     },
 });
 
 
 
-export const {addToCart,deleteCart,minusCartToCount,plusCartToCount}  = cartSlice.actions;
+export const {addToCart,deleteCart,minusCartToCount,plusCartToCount,clearToCart}  = cartSlice.actions;
 
 export default cartSlice.reducer;

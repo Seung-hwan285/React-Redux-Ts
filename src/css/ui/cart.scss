@@ -18,10 +18,10 @@
   margin-bottom: 50px;
 }
 
-.cart-title > span{
+.cart-title >span{
   @include font-style(2.5rem);
-
 }
+
 
 #cart-image{
   @include size(300px,150px);
@@ -29,27 +29,52 @@
 }
 
 .cart-item{
+
   @include grid-container(3fr,1fr,1fr,1fr);
-}
 
-.product-title{
-  @include flex-container("",center);
-  margin-right: 12rem;
-}
 
-.price{
-  @include font-style(20px);
+  .cart-product{
+
+    @include flex-container("","");
+
+    .delete-btn button{
+      @include none-style;
+      color: grey;
+      @include border-radius(10px);
+      @include padding-container01(0.5rem,1rem);
+      margin-top: 5.8rem;
+    }
+    .delete-btn button:hover{
+
+      @include button-hover(gray,black);
+      @include border-radius(10px);
+    }
+  }
+  .cart-price{
+
+    @include flex-container(center,start);
+    @include position(relative,null,null,null,3%);
+
+  }
+
 }
 
 
 .products-column{
   @include grid-container(3fr,1fr,1fr,1fr);
   @include font-bold;
+
+  .product-title{
+    @include flex-container("",center);
+    margin-right: 12rem;
+  }
+  .price{
+    @include font-style(20px);
+  }
+
+
 }
 
-.cart-product{
-  @include flex-container("","");
-}
 
 .cart-count-button{
   @include flex-container(center,center);
@@ -59,47 +84,25 @@
   position: relative;
   right: 1.3rem;
   margin-top: 60px;
+
+  &>button{
+    background: none;
+    @include none-style;
+    @include padding-container01(1.7rem,2rem);
+    @include font-style(20px);
+  }
+  &.cart-count-button > div{
+    @include font-bold;
+  }
+
 }
 
-
-
-.cart-count-button > button {
-  background: none;
-  @include none-style;
-  @include padding-container01(1.7rem,2rem);
-  @include font-style(20px);
-}
-
-.cart-count-button > div{
-  @include font-bold;
-}
-
-
-.total{
+.totalValue{
   @include flex-container(center,center);
 }
 
-.cart-price{
 
-  @include flex-container(center,start);
-  @include position(relative,null,null,null,3%);
 
-}
-
-.delete-btn button{
-  @include none-style;
-  color: grey;
-  @include border-radius(10px);
-  @include padding-container01(0.5rem,1rem);
-  margin-top: 5.8rem;
-}
-
-.delete-btn button:hover{
-
-  @include button-hover(gray,black);
-  @include border-radius(10px);
-
-}
 
 .clear-btn button{
   @include position(absolute,null,null,null,6%);
@@ -108,12 +111,11 @@
   @include border-radius(10px);
   cursor: pointer;
 
-}
+  &:hover{
+    @include button-hover(gray,black);
+  }
 
-.clear-btn button:hover{
-  @include button-hover(gray,black);
 }
-
 
 .cart-total-money{
   display: flex;

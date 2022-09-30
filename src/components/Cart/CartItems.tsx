@@ -63,7 +63,7 @@ export default function CartItems(): JSX.Element{
                             </button>
                         </div>
 
-                        <div className="total">
+                        <div className="totalValue">
                             {`${product.price * product.cartCount}`}
                         </div>
                     </div>

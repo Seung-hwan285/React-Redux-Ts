@@ -3,11 +3,14 @@ import {toast} from "react-toastify";
 
 interface CartState {
     cartItems: any[];
+    cartToAmount :number;
 }
 
 const initialState :  CartState= {
     cartItems: localStorage.getItem("cartItems") ?
         JSON.parse(localStorage.getItem("cartItems")!) : [],
+
+    cartToAmount :0
 };
 
 
@@ -48,15 +51,11 @@ export const cartSlice=createSlice({
                 alert('삭제할 상품이 장바구니에 없습니다');
             }
 
-            if(state.cartItems[itemIndex].cartCount <= 1){
-                state.cartItems=state.cartItems.filter((item) => item.id !== action.payload.id);
-            }else{
+            if(state.cartItems[itemIndex].cartCount >= 0){
                 toast.success(`${action.payload.name} 삭제`,{
-                   position: "bottom-left"
+                    position: "bottom-left"
                 });
-
-                state.cartItems[itemIndex].cartCount -=1;
-
+                state.cartItems=state.cartItems.filter((item) => item.id !== action.payload.id);
             }
             localStorage.setItem("cartItems",JSON.stringify(state.cartItems));
 
@@ -94,11 +93,21 @@ export const cartSlice=createSlice({
         },
 
 
+        productTotal(state){
+            let total = state.cartItems.reduce((acc,val)=>{
+                acc+=val.price;
+
+                return acc;
+            });
+            state.cartToAmount =total;
+        }
+
+
     },
 });
 
 
 
-export const {addToCart,deleteCart,minusCartToCount,plusCartToCount,clearToCart}  = cartSlice.actions;
+export const {addToCart,deleteCart,minusCartToCount,plusCartToCount,clearToCart,productTotal}  = cartSlice.actions;
 
 export default cartSlice.reducer;

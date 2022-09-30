@@ -3,14 +3,15 @@ import {toast} from "react-toastify";
 
 interface CartState {
     cartItems: any[];
-    cartToAmount :number;
+    cartToTotal : number;
+
 }
 
 const initialState :  CartState= {
     cartItems: localStorage.getItem("cartItems") ?
         JSON.parse(localStorage.getItem("cartItems")!) : [],
+    cartToTotal: 0,
 
-    cartToAmount :0
 };
 
 
@@ -94,12 +95,13 @@ export const cartSlice=createSlice({
 
 
         productTotal(state){
-            let total = state.cartItems.reduce((acc,val)=>{
-                acc+=val.price;
 
-                return acc;
+            let total=0;
+
+            state.cartItems.forEach((product)=>{
+                total +=product.cartCount * Number(product.price);
             });
-            state.cartToAmount =total;
+            state.cartToTotal = total;
         }
 
 

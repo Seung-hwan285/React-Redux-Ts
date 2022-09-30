@@ -13,7 +13,14 @@ import {useEffect, useState} from "react";
 function Cart() :JSX.Element{
 
 
-    const cartItems = useSelector((state:RootState)=>state.cart);
+    const {cartItems,cartToTotal} = useSelector((state:RootState)=>state.cart);
+
+
+
+    useEffect(()=>{
+        dispatch(productTotal());
+    },[cartItems]);
+
 
     console.log(cartItems);
 
@@ -39,7 +46,7 @@ function Cart() :JSX.Element{
             <div className="cart-total-money">
                 <div className="total-title">
                     <span>total</span>
-                    <span>{0}</span>
+                    <span>{cartToTotal}</span>
                 </div>
 
                 <div>

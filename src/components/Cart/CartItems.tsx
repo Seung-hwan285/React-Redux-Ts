@@ -5,7 +5,9 @@ import CartClearButton from "./CartClearButton";
 
 export default function CartItems(): JSX.Element{
 
-    const cart = useSelector((state :RootState)=>state.cart);
+    const {cartItems} = useSelector((state :RootState)=>state.cart);
+
+
 
     const dispatch = useDispatch();
 
@@ -25,7 +27,7 @@ export default function CartItems(): JSX.Element{
     return (
         <div className="cart-items">
             {
-                cart.cartItems ?  cart.cartItems.map((product)=>(
+                cartItems ?  cartItems.map((product :any)=>(
 
                     <div key={product.id} className="cart-item">
 

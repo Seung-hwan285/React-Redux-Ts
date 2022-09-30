@@ -3,12 +3,11 @@ import {toast} from "react-toastify";
 
 interface CartState {
     cartItems: any[];
-
 }
 
 const initialState :  CartState= {
-    cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")!) : [],
-
+    cartItems: localStorage.getItem("cartItems") ?
+        JSON.parse(localStorage.getItem("cartItems")!) : [],
 };
 
 
@@ -73,6 +72,7 @@ export const cartSlice=createSlice({
             if(itemCount>0){
                 state.cartItems[itemIndex].cartCount-=1;
             }
+            localStorage.setItem("cartItems",JSON.stringify(state.cartItems));
         },
 
         plusCartToCount(state,action){
@@ -85,12 +85,15 @@ export const cartSlice=createSlice({
             if(itemCount >=0){
                 state.cartItems[itemIndex].cartCount+=1;
             }
+            localStorage.setItem("cartItems",JSON.stringify(state.cartItems));
         },
 
         clearToCart(state){
             state.cartItems = [];
             localStorage.setItem("cartItems",JSON.stringify(state.cartItems));
-        }
+        },
+
+
     },
 });
 

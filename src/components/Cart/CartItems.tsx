@@ -1,6 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store";
 import {deleteCart, minusCartToCount, plusCartToCount} from "../../features/Cart/cartSlice";
+import CartClearButton from "./CartClearButton";
 
 export default function CartItems(): JSX.Element{
 
@@ -52,7 +53,7 @@ export default function CartItems(): JSX.Element{
                             </button>
 
                             <div>{product.cartCount}</div>
-                            
+
                             <button className="plus-btn"
                                     onClick={()=>onClickPlus(product)}
                             >
@@ -64,6 +65,7 @@ export default function CartItems(): JSX.Element{
                             {`${product.price * product.cartCount}`}
                         </div>
                     </div>
+
 
                 ))  :  null }
 

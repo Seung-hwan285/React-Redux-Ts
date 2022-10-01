@@ -1,4 +1,4 @@
-@mixin flex-container($align,$justify){
+@mixin _Modal_flex-container($align,$justify){
 
   display: flex;
   @if($align ==center){

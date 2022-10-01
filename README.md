@@ -1,11 +1,14 @@
 # React-Redux-Routes-Ts
 
 # 개요
-이번에 학습한 Ts-React 조합에 익숙해지고 Redux-Toolkit 연습을 하기 위한 repositories 입니다.
+이번에 학습한 Ts-React 조합에 익숙해지고 Redux-Toolkit 연습을 하기 위한 장난감 프로젝트 입니다.
+
+# 1번 
 
 - Api
   - [x]  [{id ,name , price , img }] api 만들기 
   
+
 
 - 홈 화면
     - [x] Home , Cart 라우터 기능
@@ -15,6 +18,8 @@
     - [x] 상품 추가하면 Cart로 이동
     - [x] 상품 이동했습니다. Modal 창 구현
 
+
+# 2번
  
 - 장바구니 화면
     - [x] localStorage data 화면에 뿌려주기
@@ -24,9 +29,35 @@
     - [x] 장바구니 모든 상품 가격 표시
     - [ ] 장바구니 nav 개수 증가 표시 
     - [ ] 장바구니 체크아웃 기능
+
+
+# 3번
+- Cypress
+  - Home
+    - [x] 홈 화면 렌더링 테스트
+    - [x] Home 버튼 테스트
+    - [x] 장바구니로 버튼 페이지 이동 테스트
+    - [x] 상품 배치 테스트
+    - [x] url 다를 경우 예외 페이지 테스트
+
+# 4번
+
+- 회원가입 화면 ( JWT )
+  - [ ] 회원가입 버튼 누르면 회원가입 기능 
+  - [ ] 아이디 4자리 이하 경고
+  - [ ] 비밀번호 8자리 이하 경고
+
+
+
+- 로그인 화면 ( JWT )
+  - [ ] 로그인 버튼 누르면 로그인 기능
+  - [ ] 아이디 4자리 이하 경고
+  - [ ] 비밀번호 8자리 이하 경고
+  
+
+
     
 
-- 리펙토링
-  - [x] cart.scss -> ( mixin 폴더로 이동시키기 )
-  - [x] home.scss -> ( mixin 폴더로 이동시키기 )
-  - [x] modal.scss -> ( mixin 폴더로 이동시키기 )
+
+# 전체 현황판
+https://www.notion.so/React-73c58902785f4a998f1e71fde3fb10c7

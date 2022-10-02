@@ -24,7 +24,9 @@ describe('<Home>', () => {
 
   }
 
-
+  it('Home render 테스트',()=>{
+    cy.get('.home-container').should('be.visible');
+  });
 
   //
 

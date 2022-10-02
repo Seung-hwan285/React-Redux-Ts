@@ -37,12 +37,11 @@ function Navbar() :JSX.Element{
 
     useEffect(()=>{
         let temp =  cartItems.map((product:any)=>product.cartCount);
-        let sum =temp.reduce((a,b)=>a+b,0);
-        setTotalCartCount(sum);
+        let CartProductSum =temp.reduce((a,b)=>a+b,0);
+        setTotalCartCount(CartProductSum);
     },[cartItems]);
 
     return(
-
         <nav>
         <div className="navbar-container">
             <Link to="/"><h2 id="nav-title">Home</h2></Link>

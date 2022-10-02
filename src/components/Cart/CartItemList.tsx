@@ -62,7 +62,7 @@ function CartItemList({product}:CartItemListProps):JSX.Element{
                     -
                 </button>
 
-                <div>{product.cartCount}</div>
+                <div id="cart-count">{product.cartCount}</div>
 
                 <button className="plus-btn"
                         onClick={()=>onClickPlus(product)}

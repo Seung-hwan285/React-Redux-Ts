@@ -1,12 +1,9 @@
 import "../../css/main.scss";
 
-import {dispatch} from "jest-circus/build/state";
 import {useDispatch} from "react-redux";
 import {showClose} from "../../features/Modal/modalSlice";
 import React from "react";
-import {addToCart} from "../../features/Cart/cartSlice";
 import {useNavigate} from "react-router-dom";
-import {useGetAllProductsQuery} from "../../features/Home/productApi";
 
 function Modal() : JSX.Element {
 

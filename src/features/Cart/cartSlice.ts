@@ -62,7 +62,7 @@ export const cartSlice=createSlice({
 
         },
 
-        minusCartToCount(state,action){
+        minusOfCount(state,action){
 
             const itemIndex = state.cartItems.findIndex((item)=>{
                 return item.id ===action.payload.id;
@@ -75,7 +75,7 @@ export const cartSlice=createSlice({
             localStorage.setItem("cartItems",JSON.stringify(state.cartItems));
         },
 
-        plusCartToCount(state,action){
+        plusOfCount(state,action){
             const itemIndex = state.cartItems.findIndex((item)=>{
                return item.id ===action.payload.id;
             });
@@ -102,7 +102,8 @@ export const cartSlice=createSlice({
                 total +=product.cartCount * Number(product.price);
             });
             state.cartToTotal = total;
-        }
+        },
+
 
 
     },
@@ -110,6 +111,6 @@ export const cartSlice=createSlice({
 
 
 
-export const {addToCart,deleteCart,minusCartToCount,plusCartToCount,clearToCart,productTotal}  = cartSlice.actions;
+export const {addToCart,deleteCart,minusOfCount,plusOfCount,clearToCart,productTotal}  = cartSlice.actions;
 
 export default cartSlice.reducer;

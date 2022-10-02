@@ -1,13 +1,10 @@
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store";
-import {deleteCart, minusCartToCount, plusCartToCount} from "../../features/Cart/cartSlice";
-import CartClearButton from "./CartClearButton";
+import {deleteCart, minusOfCount, plusOfCount} from "../../features/Cart/cartSlice";
 
 export default function CartItems(): JSX.Element{
 
     const {cartItems} = useSelector((state :RootState)=>state.cart);
-
-
 
     const dispatch = useDispatch();
 
@@ -16,11 +13,11 @@ export default function CartItems(): JSX.Element{
     }
 
     const onClickMinus=(product: any)=>{
-        dispatch(minusCartToCount(product));
+        dispatch(minusOfCount(product));
     }
 
     const onClickPlus=(product:any)=>{
-        dispatch(plusCartToCount(product));
+        dispatch(plusOfCount(product));
     }
 
 

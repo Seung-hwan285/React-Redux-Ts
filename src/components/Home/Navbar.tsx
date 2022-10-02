@@ -1,11 +1,51 @@
 import {Link} from "react-router-dom";
 import "../../css/main.scss";
+import {useSelector} from "react-redux";
+import {RootState} from "../../store";
+import {useEffect, useState} from "react";
+interface cartValueType{
+    id: number;
+    name : string;
+    price :string;
+    img : string;
+    cartCount : number;
+
+
+}
+
+interface cartKeyType {
+    [key:number] :cartValueType
+}
+
+interface cartObj{
+    cartItems :cartKeyType[];
+
+}
+
+
 function Navbar() :JSX.Element{
 
+    // 각 상품 carCount 전부더해주면 되겟지?
+
+
+    const cartProducts : cartObj  = useSelector((state: RootState)=>state.cart);
+
+    let {cartItems} = cartProducts;
+
+    const [totalCartCount,setTotalCartCount]= useState<number[]>([]);
+
+
+
+    useEffect(()=>{
+        let temp =  cartItems.map((product:any)=>product.cartCount);
+        setTotalCartCount(temp.reduce((a,b)=>a+b));
+    },[cartItems]);
+
     return(
+
+        <nav>
         <div className="navbar-container">
             <Link to="/"><h2 id="nav-title">Home</h2></Link>
-
 
             <Link to={"/Cart"}>
             <div className="nav-bag">
@@ -18,7 +58,7 @@ function Navbar() :JSX.Element{
                     </svg>
 
             <span className="bac-count">
-                <span>3</span>
+                <span>{totalCartCount}</span>
             </span>
 
 
@@ -27,6 +67,7 @@ function Navbar() :JSX.Element{
             </div>
             </Link>
         </div>
+        </nav>
     )
 }
 

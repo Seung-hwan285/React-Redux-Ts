@@ -1,15 +1,12 @@
-import React, {useEffect, useState} from "react";
-import axios from "axios";
+import React from "react";
 import {useGetAllProductsQuery} from "../../features/Home/productApi";
 import "../../css/main.scss";
 
 import {useDispatch, useSelector} from "react-redux";
 import {addToCart, deleteCart} from "../../features/Cart/cartSlice";
-import { useNavigate } from 'react-router-dom';
 import {showOpen} from "../../features/Modal/modalSlice";
 import {RootState} from "../../store";
 import Modal from "../Modal/Modal";
-import Cart from "../Cart/Cart";
 function Home() :JSX.Element{
 
     const {data,isLoading} = useGetAllProductsQuery("productsApi");

@@ -9,13 +9,13 @@ describe('<Home>', () => {
     cy.visit( 'http://localhost:3000');
   });
 
-  const modalClos=()=>{
+  const modalClos=():void=>{
     cy.wait(1000);
     cy.get('.clear-btn').click();
     expect(true).to.not.equal('modal-container');
   }
 
-  const modalCartPage=()=>{
+  const modalCartPage=():void=>{
 
     cy.get('.product-btn').eq(0).click();
     cy.wait(1000);
@@ -25,17 +25,17 @@ describe('<Home>', () => {
   }
 
 
-  it('App 홈 화면 테스트',()=>{
+  it('App 홈 화면 테스트',():void=>{
     expect(true).to.equal(true);
   });
 
-  it('Home 버튼 클릭 테스트',()=>{
+  it('Home 버튼 클릭 테스트',():void=>{
       cy.get('#nav-title').click();
       cy.get('.App').should('be.visible');
   });
 
 
-  it('Home 상품 정상적으로 배치되는지 테스트',()=>{
+  it('Home 상품 정상적으로 배치되는지 테스트',():void=>{
       cy.get('.product').should(($list)=>{
         expect($list).to.have.length(3);
         expect($list.eq(0)).to.contain('상품 추가하기').contain('상품 삭제');
@@ -44,14 +44,14 @@ describe('<Home>', () => {
       });
   });
 
-  it('장바구니 페이지 버튼 누르면 이동 테스트',()=>{
+  it('장바구니 페이지 버튼 누르면 이동 테스트',():void=>{
     cy.get('.bac-count').click();
     cy.url().should('include','http://localhost:3000/Cart');
   });
 
 
 
-  it('모달창 테스트',()=>{
+  it('모달창 테스트',():void=>{
     cy.get('.product-btn').eq(0).click();
     cy.get('.modal-container').should('be.visible');
 

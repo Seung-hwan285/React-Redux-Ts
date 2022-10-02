@@ -11,6 +11,8 @@ function Home() :JSX.Element{
 
     const {data,isLoading} = useGetAllProductsQuery("productsApi");
 
+    console.log(data);
+    console.log(isLoading);
     const dispatch = useDispatch();
 
     const showUI = useSelector((state: RootState)=>state.modal);
@@ -26,7 +28,6 @@ function Home() :JSX.Element{
     const onAddToCart =(product : React.MouseEvent<HTMLButtonElement>)=>{
         // action 전달
         dispatch(showOpen());
-
         dispatch(addToCart(product));
     }
 

@@ -32,13 +32,13 @@ function Navbar() :JSX.Element{
 
     let {cartItems} = cartProducts;
 
-    const [totalCartCount,setTotalCartCount]= useState<number[]>([]);
-
+    const [totalCartCount,setTotalCartCount]= useState<number>(0);
 
 
     useEffect(()=>{
         let temp =  cartItems.map((product:any)=>product.cartCount);
-        setTotalCartCount(temp.reduce((a,b)=>a+b));
+        let sum =temp.reduce((a,b)=>a+b,0);
+        setTotalCartCount(sum);
     },[cartItems]);
 
     return(

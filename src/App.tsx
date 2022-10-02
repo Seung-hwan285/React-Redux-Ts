@@ -20,9 +20,12 @@ function App() :JSX.Element{
 
     return (
     <div className="App">
+
       <BrowserRouter>
           <ToastContainer/>
           <Navbar/>
+
+
         <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/Cart" element={<Cart/>}/>

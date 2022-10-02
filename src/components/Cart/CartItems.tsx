@@ -1,6 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store";
 import {deleteCart, minusOfCount, plusOfCount} from "../../features/Cart/cartSlice";
+import CartItemList from "./CartItemList";
 
 export default function CartItems(): JSX.Element{
 
@@ -25,47 +26,7 @@ export default function CartItems(): JSX.Element{
         <div className="cart-items">
             {
                 cartItems ?  cartItems.map((product :any)=>(
-
-                    <div key={product.id} className="cart-item">
-
-
-                        <div className="cart-product">
-
-                            <img id="cart-image" src={product.img}/>
-
-                            <div className="delete-btn">
-                                <h3>{product.name}</h3>
-                                <button onClick={()=>onClickDelete(product)}>Remove</button>
-                            </div>
-                        </div>
-
-                        <div className="cart-price">
-                            <span>{product.price}</span>
-
-                        </div>
-
-                        <div className="cart-count-button">
-                            <button className="minus-btn"
-                                    onClick={()=>onClickMinus(product)}
-                            >
-                                -
-                            </button>
-
-                            <div>{product.cartCount}</div>
-
-                            <button className="plus-btn"
-                                    onClick={()=>onClickPlus(product)}
-                            >
-                                +
-                            </button>
-                        </div>
-
-                        <div className="totalValue">
-                            {`${product.price * product.cartCount}`}
-                        </div>
-                    </div>
-
-
+                    <CartItemList product={product}/>
                 ))  :  null }
 
 

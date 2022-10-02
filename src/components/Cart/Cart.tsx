@@ -22,7 +22,6 @@ function Cart() :JSX.Element{
     },[cartItems]);
 
 
-    console.log(cartItems);
 
 
     const dispatch=useDispatch();

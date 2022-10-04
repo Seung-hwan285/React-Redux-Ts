@@ -27,14 +27,6 @@ const NavLayout=()=>(
 
 function App() :JSX.Element{
 
-
-    const [showNav ,setShowNav] = useState<boolean>(true);
-
-    // 1. nav바는 auth페이지로 이동했을때는 안보여지게 만들자
-
-
-
-
     return (
     <div className="App">
 
@@ -48,9 +40,9 @@ function App() :JSX.Element{
                 <Route path="/Cart" element={<Cart/>}/>
                 <Route path="/not-found" element={<NotFound/>}/>
                 <Route path="*" element={<Navigate to="/not-found"/>}/>
-        </Route>
-            <Route path="/auth" element={<Auth showNav={showNav}/>}/>
+            </Route>
 
+            <Route path="/auth" element={<Auth/>}/>
         </Routes>
 
 

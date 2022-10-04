@@ -47,7 +47,7 @@ function Navbar() :JSX.Element{
             <Link to="/"><h2 id="nav-title">Home</h2></Link>
 
             <Link to={"/Cart"}>
-            <div className="nav-bag">
+            <div className="nav">
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="66" height="26" fill="currentColor"
 
@@ -61,9 +61,18 @@ function Navbar() :JSX.Element{
             </span>
 
 
-
-
             </div>
+            </Link>
+
+            <Link to={"/Auth"}>
+                
+                <div className="form">
+                    
+                    <span>
+                        로그인
+                    </span>
+                </div>
+                
             </Link>
         </div>
         </nav>

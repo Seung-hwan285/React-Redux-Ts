@@ -11,8 +11,6 @@ function Home() :JSX.Element{
 
     const {data,isLoading} = useGetAllProductsQuery("productsApi");
 
-    console.log(data);
-    console.log(isLoading);
     const dispatch = useDispatch();
 
     const showUI = useSelector((state: RootState)=>state.modal);

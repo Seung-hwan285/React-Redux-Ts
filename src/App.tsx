@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import logo from './logo.svg';
 import './css/ui/navbar.scss';
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css"
@@ -10,9 +9,7 @@ import Cart from "./components/Cart/Cart";
 import Navbar from "./components/Home/Navbar";
 import NotFound from "./components/Home/NotFound";
 import {ToastContainer} from "react-toastify";
-import {useSelector} from "react-redux";
-import {RootState} from "./store";
-import Auth from "./components/SignUp/Auth";
+import SignUp from "./components/SignUp/Sign";
 
 
 const NavLayout=()=>(
@@ -42,7 +39,7 @@ function App() :JSX.Element{
                 <Route path="*" element={<Navigate to="/not-found"/>}/>
             </Route>
 
-            <Route path="/auth" element={<Auth/>}/>
+            <Route path="/sign" element={<SignUp/>}/>
         </Routes>
 
 

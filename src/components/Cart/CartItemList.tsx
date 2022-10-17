@@ -16,9 +16,7 @@ interface ProductItem{
 
 function CartItemList({product}:CartItemListProps):JSX.Element{
 
-
     const {id,name,img,price,cartCount}:ProductItem= product
-
 
     const dispatch = useDispatch();
 
@@ -36,12 +34,8 @@ function CartItemList({product}:CartItemListProps):JSX.Element{
 
 
     return (
-
         <div key={product.id} className="cart-item">
-
-
             <div className="cart-product">
-
                 <img id="cart-image" src={product.img}/>
 
                 <div className="delete-btn">
@@ -52,7 +46,6 @@ function CartItemList({product}:CartItemListProps):JSX.Element{
 
             <div className="cart-price">
                 <span>{product.price}</span>
-
             </div>
 
             <div className="cart-count-button">

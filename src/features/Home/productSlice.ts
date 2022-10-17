@@ -26,14 +26,12 @@ const initialState :  ProductsState= {
     status : "",
 };
 
-
 const productSlice = createSlice({
     name: 'products',
     initialState,
     //동기 / 내부  action
     reducers: {
 
-        
     },
 
     // 비동기 /외부 aciton
@@ -55,7 +53,7 @@ const productSlice = createSlice({
         // 실패
         builder.addCase(productFetch.rejected,(state,action)=>{
             state.status = "rejected";
-        })
+        });
     },
 })
 

@@ -2,15 +2,14 @@ import React, {useEffect, useState} from 'react';
 import './css/ui/navbar.scss';
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css"
-import {BrowserRouter, useLocation} from "react-router-dom";
-import { Routes, Route, Link, Navigate ,Outlet } from "react-router-dom";
+import {BrowserRouter} from "react-router-dom";
+import { Routes, Route, Navigate ,Outlet } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Cart from "./components/Cart/Cart";
 import Navbar from "./components/Home/Navbar";
 import NotFound from "./components/Home/NotFound";
 import {ToastContainer} from "react-toastify";
 import SignUp from "./components/SignUp/Sign";
-
 
 const NavLayout=()=>(
     <>
@@ -39,7 +38,7 @@ function App() :JSX.Element{
                 <Route path="*" element={<Navigate to="/not-found"/>}/>
             </Route>
 
-            <Route path="/sign" element={<SignUp/>}/>
+            <Route path="/signUp" element={<SignUp/>}/>
         </Routes>
 
 

@@ -64,7 +64,7 @@ function Navbar() :JSX.Element{
             </div>
             </Link>
 
-            <Link to={"/Auth"}>
+            <Link to={"/signUp"}>
                 
                 <div className="form">
                     

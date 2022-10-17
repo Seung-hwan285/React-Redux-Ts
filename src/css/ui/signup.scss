@@ -49,7 +49,7 @@
   width: 300px;
   height: 30px;
   border: 0;
-  margin-top: 100px;
+  margin-top: 90px;
   background-color: grey;
   transform: translateX(-50px);
 }
@@ -58,4 +58,15 @@ label{
   font-size: 14px;
   font-weight: 600;
   color: rgb(34, 34, 34);
+}
+
+.forgot-password{
+  text-align: center;
+  position: relative;
+  right: 40%;
+  bottom: 70px;
+}
+
+.forgot-password a{
+  text-decoration: none;
 }

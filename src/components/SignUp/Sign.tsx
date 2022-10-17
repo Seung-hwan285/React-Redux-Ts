@@ -2,26 +2,39 @@ import React, {useCallback, useState} from "react";
 import {useDispatch} from "react-redux";
 import {Join} from "../../features/Sign/joinSlice";
 
-interface userType{
-    name :string,
-    password : string,
-}
-
+const pattern3 = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
 
 function SignUp() :JSX.Element{
 
     const dispatch = useDispatch();
-    const [name,setName] =useState('');
-    const [password,setPassword]= useState('');
+    const [name,setName] =useState<string>('');
+    const [password,setPassword]= useState<string>('');
+
+    const [nameMessage,setNameMessage]= useState<string>('');
+    const [passworMessage,setPasswordMessage]= useState<string>('');
+
+    const [isName,setIsName]= useState<boolean>(true);
+    const [isPassword,setIsPassword]= useState<boolean>(true);
 
 
     const onChangeId=(e:React.ChangeEvent<HTMLInputElement>)=>{
         setName(e.target.value);
+        if(e.target.value.length < 4 || pattern3.test(e.target.value)){
+            setNameMessage('아이디는 4자리 이상 한글이 들어갈 수 없습니다.');
+            setIsName(false);
+        }else{
+            setIsName(true);
+        }
     }
 
     const onChangePassword=(e:React.ChangeEvent<HTMLInputElement>)=>{
         setPassword(e.target.value);
-        console.log(password);
+        if(e.target.value.length < 8){
+            setPasswordMessage('비밀번호는 8자리 이상으로 작성해주세요');
+            setIsPassword(false);
+        }else{
+            setIsPassword(true);
+        }
     }
 
     const onSubmit=(e:React.ChangeEvent<HTMLFormElement>)=>{
@@ -41,6 +54,8 @@ function SignUp() :JSX.Element{
                             type="text"
                             onChange={onChangeId}
                         />
+
+                        {isName ? '' : <span className={`success-${isName ? `success` : `error`}`}>{nameMessage}</span>}
                     </div>
 
                     <div className="form-group-password">
@@ -50,6 +65,7 @@ function SignUp() :JSX.Element{
                             type="password"
                             onChange={onChangePassword}
                         />
+                        {isPassword ? '' : <span className={`success-${isPassword ? `success` : `error`}`}>{passworMessage}</span>}
                     </div>
 
                     <button

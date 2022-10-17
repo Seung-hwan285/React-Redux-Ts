@@ -19,8 +19,6 @@ export const productApi= createApi({
         }),
     }),
 
-
-
 });
 
 

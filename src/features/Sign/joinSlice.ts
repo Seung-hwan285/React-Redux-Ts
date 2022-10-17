@@ -9,13 +9,15 @@ export interface userState {
 const initialState : userState={
     name : '',
     password : '',
+
 }
 
 export const Join = createAsyncThunk("/user",
     async(data: userState) => {
-        const response = await axios.post("http://localhost:8888/user",data);
+        const response = await axios.post("http://localhost:8888/use",data);
         return response.data;
 });
+
 
 export const joinSlice  =createSlice({
     name :'join',
